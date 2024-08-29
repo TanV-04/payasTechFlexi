@@ -3,7 +3,7 @@ import "../App.css";
 
 export default function Banner({ images }) {
   return (
-    <div className="banner-wrapper py-10 bg-gray-800">
+    <div className="banner-wrapper py-10 bg-gray-800 overflow-hidden">
       <div className="wrapper max-w-screen-lg mx-auto px-4">
         <div className="images flex gap-4 mt-10 animate-swipe">
           {/* a prop is destructured directly from the props object in the function signature */}

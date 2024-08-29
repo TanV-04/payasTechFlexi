@@ -79,19 +79,19 @@ const Footer = () => {
                 href="https://www.facebook.com/payastech.pune"
                 target="_blank"
               >
-                <i class="fa-brands fa-facebook"></i>
+                <i className="fa-brands fa-facebook"></i>
               </SocialIconLink>
               <SocialIconLink
                 href="https://www.instagram.com/payas_technologies_training/"
                 target="_blank"
               >
-                <i class="fa-brands fa-instagram"></i>
+                <i className="fa-brands fa-instagram"></i>
               </SocialIconLink>
               <SocialIconLink
                 href="https://www.youtube.com/@payas_technologies"
                 target="_blank"
               >
-                <i class="fa-brands fa-youtube"></i>
+                <i className="fa-brands fa-youtube"></i>
               </SocialIconLink>
             </SocialIcons>
           </SocialMediaWrap>

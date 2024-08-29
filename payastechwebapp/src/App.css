@@ -20,7 +20,7 @@
 
 /*uncomment below code to start the banner*/
 
-/* @keyframes swipe {
+ @keyframes swipe {
   from {
     transform: translateX(0);
   }
@@ -31,4 +31,4 @@
 
 .animate-swipe {
   animation: swipe 10s linear infinite;
-} */
+} 
