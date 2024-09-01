@@ -159,6 +159,6 @@ export const Separator = styled.div`
   display: none; /* Hidden by default */
 
   @media screen and (min-width: 908px) {
-    display: block; 
+    display: block;
   }
 `;

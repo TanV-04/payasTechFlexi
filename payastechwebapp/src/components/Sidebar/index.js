@@ -12,6 +12,7 @@ import {
   Button,
   ButtonGroup,
 } from "./SidebarElements";
+import "../../App.css"
 
 const Sidebar = ({ isOpen, toggle }) => {
   return (
@@ -20,7 +21,7 @@ const Sidebar = ({ isOpen, toggle }) => {
         <CloseIcon />
       </Icon>
 
-      <SidebarWrapper>
+      <SidebarWrapper className="dmSans">
         <SidebarMenu>
           <SidebarLink to="/" onClick={toggle}>
             Home

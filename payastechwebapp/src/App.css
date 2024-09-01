@@ -2,8 +2,8 @@
   display: flex;
   gap: 1rem;
   overflow-x: auto;
-  white-space: nowrap; 
-  width: 100vw; 
+  white-space: nowrap;
+  width: 100vw;
 }
 
 .images img {
@@ -13,14 +13,13 @@
   object-fit: cover; /* Maintain aspect ratio */
 }
 
-
 .images::-webkit-scrollbar {
   display: none;
 }
 
 /*uncomment below code to start the banner*/
 
- @keyframes swipe {
+@keyframes swipe {
   from {
     transform: translateX(0);
   }
@@ -31,4 +30,16 @@
 
 .animate-swipe {
   animation: swipe 10s linear infinite;
-} 
+}
+
+.poppins {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.dmSans {
+  font-family: "DM Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}

@@ -10,6 +10,7 @@ export const HeroContainer = styled.div`
   height: 800px;
   position: relative;
   z-index: 1;
+  width: 100%;
 `;
 
 export const HeroBg = styled.div`
@@ -29,7 +30,7 @@ export const VideoBg = styled.video`
   -o-object-fit: cover;
   object-fit: cover;
   background: #232a34;
-  opacity: 0.4; /* opacity of the video */
+  opacity: 0.1; /* opacity of the video */
   position: absolute;
   top: 0;
   left: 0;
@@ -44,6 +45,7 @@ export const HeroContent = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
 `;
 
 export const HeroH1 = styled.h1`
@@ -63,15 +65,19 @@ export const HeroH1 = styled.h1`
 export const HeroP = styled.p`
   margin-top: 24px;
   color: #fff;
-  font-size: 24px;
+  font-size: 20px;
   text-align: center;
-  max-width: 600px;
+  max-width: 800px;
+  line-height: 1.8;
+  padding: 0 20px;
+
   @media screen and (max-width: 768px) {
-    font-size: 24px;
+    font-size: 18px;
   }
 
   @media screen and (max-width: 480px) {
-    font-size: 18px;
+    font-size: 16px;
+    padding: 0 15px;
   }
 `;
 
@@ -84,6 +90,20 @@ export const HeroBtnWrapper = styled.div`
 
 export const StyledIcon = styled(FontAwesomeIcon)`
   margin-left: 0.5rem;
-  margin-top: 2px; 
+  margin-top: 2px;
+`;
 
+export const Separator = styled.div`
+  height: 1px;
+  width: 100px;
+  background: #fff;
+  margin: 20px 0;
+  display: none;
+
+  @media screen and (min-width: 908px) {
+    display: block; /* Show the separator on larger screens */
+  }
+  @media screen and (max-width: 908px) {
+    display: block;
+  }
 `;

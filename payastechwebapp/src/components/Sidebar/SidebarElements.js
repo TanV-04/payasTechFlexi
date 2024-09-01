@@ -71,6 +71,11 @@ export const SidebarMenu = styled.ul`
 export const SideBtnWrap = styled.div`
   display: flex;
   justify-content: center;
+  margin-top:25px;
+
+  & + & {
+    margin-top: 10px;
+  }
 `;
 
 export const SidebarRoute = styled(LinkR)`
@@ -90,4 +95,3 @@ export const SidebarRoute = styled(LinkR)`
     color: #010606;
   }
 `;
-
