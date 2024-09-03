@@ -3,25 +3,6 @@ import { useEffect, useState } from "react";
 import styled from "styled-components";
 
 const BackToTopButton = () => {
-  const Button = styled.button`
-    position: fixed;
-    bottom: 50px;
-    right: 50px;
-    height: 50px;
-    width: 50px;
-    font-size: 20px;
-    color: white;
-    background: black;
-    border-radius: 50%;
-    border: none;
-    cursor: pointer;
-    z-index: 1000;
-
-    @media screen and (max-width: 600px) {
-      bottom: 20px; /* Move button higher on smaller screens */
-      right: 20px; /* Adjust right position */
-    }
-  `;
 
   const [backToTopButton, setBackToTopButton] = React.useState(false);
 
@@ -52,7 +33,7 @@ const BackToTopButton = () => {
             right: "50px",
             height: "50px",
             width: "50px",
-            fontSize: "20px",
+            fontSize: "19px",
             color: "#4CAF50",
             background: "black",
             borderRadius: "50%",
