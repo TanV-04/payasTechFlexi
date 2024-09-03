@@ -6,6 +6,7 @@ import { images } from "../assets/data";
 import { HeroSection } from "../components/Hero";
 import InfoSection from "../components/InfoSection";
 import Enquiry from "../components/Enquiry";
+import BackToTopButton from "../components/BackToTopButton";
 
 
 export default function Home() {
@@ -17,6 +18,7 @@ export default function Home() {
       <HeroSection />
       {/* <InfoSection /> */}
       <Enquiry />
+      <BackToTopButton />
       <Footer />
     </div>
   );
