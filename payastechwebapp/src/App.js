@@ -7,12 +7,15 @@ import Footer from "./components/Footer";
 import Sidebar from "./components/Sidebar";
 import Home from "./pages/Home";
 import About from "./pages/About";
+import EmailForm from "./components/EmailForm";
 
 function App() {
   return (
     <div className="">
       {/* <Sidebar /> */}
       <Home />
+
+      {/* <EmailForm /> */}
     </div>
   );
 }

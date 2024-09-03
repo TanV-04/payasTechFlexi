@@ -43,3 +43,63 @@
   font-optical-sizing: auto;
   font-style: normal;
 }
+
+/* slide down from the top*/
+@keyframes slide-down {
+  0% {
+    /* at the start of the animation, the element is positioned above the visible area*/
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(
+      0
+    ); /*at the end of the animation, the element has slid down to its normal position*/
+  }
+}
+
+/*makes the element slide back up after sliding down*/
+@keyframes slide-in {
+  0% {
+    transform: translateY(0); /*the element starts at its normal position*/
+  }
+  100% {
+    transform: translateY(
+      -100%
+    ); /*the element slides back up, moving out of the view above the screen*/
+  }
+}
+
+.animate-slide-down {
+  animation: slide-down 0.5s ease-out forwards,
+    slide-in 0.5s ease-in forwards 2s;
+}
+
+/*ease-out is a timing function. moves the element down from -100 to 0 and stays there (forwards)*/
+
+/*after 2 seconds (delay), the slide-in animation starts with a duration of 0.5 seconds and an ease-in timing function. it moves the element from 0 back to -100*/
+
+.emailForm {
+  display: flex;
+  flex-direction: column;
+}
+
+input,
+textarea {
+  margin: 10px 0px;
+}
+
+.hover-property {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  &:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+
+  @media (max-width: 908px) {
+    padding: 25px;
+  }
+}
+
+/* .mainContainer {
+  background: #0c0c0c;
+} */
