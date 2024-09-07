@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FaBars } from "react-icons/fa";
 import logo from "../../images/logo.jpg";
+import { animateScroll as scroll } from "react-scroll";
 
 import {
   Nav,
@@ -18,18 +19,36 @@ import {
 } from "./NavbarElements";
 import Sidebar from "../Sidebar";
 
-const Navbar = () => {
+const Navbar = ({ toggle }) => {
   const [isNavOpen, setIsNavOpen] = useState(false);
+
+  const [scrollNav, setScrollNav] = useState(false);
+
+  const changeNav = () => {
+    if (window.scrollY >= 80) {
+      setScrollNav(true);
+    } else {
+      setScrollNav(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", changeNav);
+  });
 
   const toggleNav = () => {
     setIsNavOpen(!isNavOpen);
   };
 
+  const toggleHome = () => {
+    scroll.scrollToTop();
+  };
+
   return (
     <>
-      <Nav>
+      <Nav scrollNav={scrollNav}>
         <NavBarContainer>
-          <NavLogo to="/">
+          <NavLogo to="/" onClick={toggleHome}>
             {/* <h1>Hello!</h1> */}
 
             <img alt="logo" className="w-16 h-auto" src={logo} />
@@ -42,53 +61,71 @@ const Navbar = () => {
 
           <Navmenu>
             <NavItem>
-              <NavLinks to="/">Home</NavLinks>
+              <NavLinks to="/" exact activeClassname="active">
+                Home
+              </NavLinks>
             </NavItem>
           </Navmenu>
 
           <Navmenu>
             <NavItem>
-              <NavLinks to="/about">About</NavLinks>
+              <NavLinks to="/about" activeClassName="active">
+                About
+              </NavLinks>
             </NavItem>
           </Navmenu>
 
           <Navmenu>
             <NavItem>
-              <NavLinks to="/courses">Courses</NavLinks>
+              <NavLinks to="/courses" activeClassName="active">
+                Courses
+              </NavLinks>
             </NavItem>
           </Navmenu>
 
           <Navmenu>
             <NavItem>
-              <NavLinks to="/elearning">E-Learning</NavLinks>
+              <NavLinks to="/elearning" activeClassName="active">
+                E-Learning
+              </NavLinks>
             </NavItem>
           </Navmenu>
 
           <Navmenu>
             <NavItem>
-              <NavLinks to="/gallery">Gallery</NavLinks>
+              <NavLinks to="/gallery" activeClassName="active">
+                Gallery
+              </NavLinks>
             </NavItem>
           </Navmenu>
 
           <Navmenu>
             <NavItem>
-              <NavLinks to="/videos">Videos</NavLinks>
+              <NavLinks to="/videos" activeClassName="active">
+                Videos
+              </NavLinks>
             </NavItem>
           </Navmenu>
 
           <Navmenu>
             <NavItem>
-              <NavLinks to="/contactus">Contact Us</NavLinks>
+              <NavLinks to="/contactus" activeClassName="active">
+                Contact Us
+              </NavLinks>
             </NavItem>
           </Navmenu>
 
           <ButtonGroup>
             <NavBtn>
-              <NavBtnLink to="/signin">Sign In</NavBtnLink>
+              <NavBtnLink to="/signin" activeClassName="active">
+                Sign In
+              </NavBtnLink>
             </NavBtn>
             <Separator />
             <NavBtn>
-              <NavBtnLink to="/enquire">Enquire</NavBtnLink>
+              <NavBtnLink to="/enquire" activeClassName="active">
+                Enquire
+              </NavBtnLink>
             </NavBtn>
           </ButtonGroup>
         </NavBarContainer>

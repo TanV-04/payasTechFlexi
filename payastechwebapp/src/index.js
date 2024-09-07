@@ -13,6 +13,8 @@ import { SignIn } from "./pages/SignIn";
 import Enquire from "./pages/Enquire";
 import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, RouterProvider, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
 const router = createBrowserRouter([
   {

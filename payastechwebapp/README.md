@@ -38,3 +38,7 @@ npm installations:
 - install EmailJS library for React:
   - npm install @emailjs/browser --save
   - npm install @emailjs/browser axios (to make HTTP requests using RestAPI calls)
+
+- install express, mongoose, cors and dotenv for enviornment variables: npm install express mongoose cors dotenv
+
+- install axios: npm install axios

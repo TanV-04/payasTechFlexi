@@ -18,8 +18,10 @@ align-items: center;
 transition: all 0.2 ease-in-out;
 
 &:hover {
-transition: all 0.2 ease-in-out;
-background: ${({ primary }) => (primary ? "#fff" : "#01bf71")};
+transition: all 0.2s ease-in-out;
+color: #fff;
+// transform: translateX(-5px);
+background: ${({ primary }) => (primary ? "#06402B" : "#01bf71")};
 }
 
 `;
