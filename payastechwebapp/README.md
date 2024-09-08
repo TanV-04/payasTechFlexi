@@ -42,3 +42,5 @@ npm installations:
 - install express, mongoose, cors and dotenv for enviornment variables: npm install express mongoose cors dotenv
 
 - install axios: npm install axios
+
+- install cors: npm install cors
