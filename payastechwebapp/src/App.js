@@ -15,7 +15,7 @@ function App() {
     <div className="">
       {/* <Sidebar /> */}
       <Home />
-      <About />
+      {/* <About /> */}
 
       {/* <EmailForm /> */}
     </div>
