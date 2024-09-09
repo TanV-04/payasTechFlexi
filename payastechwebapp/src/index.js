@@ -15,6 +15,7 @@ import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, RouterProvider, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import PrivateComponent from "./components/PrivateComponent";
 
 const router = createBrowserRouter([
   {
@@ -32,15 +33,15 @@ const router = createBrowserRouter([
     element: <About />,
   },
 
-  {
-    path: "/Courses",
-    element: <Courses />,
-  },
+  // {
+  //   path: "/Courses",
+  //   element: <Courses />,
+  // },
 
-  {
-    path: "/ELearning",
-    element: <ELearning />,
-  },
+  // {
+  //   path: "/ELearning",
+  //   element: <ELearning />,
+  // },
 
   {
     path: "/Gallery",
@@ -65,6 +66,24 @@ const router = createBrowserRouter([
   {
     path: "/Enquire",
     element: <Enquire />,
+  },
+
+  // below are protected routes that are defined as children of the privateComponent route. if the user 
+  // is not logged in, they will be redirected to the /signIn page
+  {
+    path: "/",
+    element: <PrivateComponent />, // wrap protected routes
+    children: [
+      // add more protected routes (routes protected by PrivateComponent wrapper)
+      // { path: "/Home", element: <Home /> },
+      // { path: "/About", element: <About /> },
+      { path: "Courses", element: <Courses /> },
+      { path: "ELearning", element: <ELearning /> },
+      // { path: "Gallery", element: <Gallery /> },
+      // { path: "Videos", element: <Videos /> },
+      { path: "ContactUs", element: <ContactUs /> },
+      // { path: "Enquire", element: <Enquire /> },
+    ],
   },
 ]);
 

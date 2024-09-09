@@ -12,7 +12,7 @@ import {
   Text,
 } from "./SignInElements";
 import logo from "../../images/logo.jpg";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const SignInElements = () => {
   const initialValues = {
@@ -29,6 +29,8 @@ const SignInElements = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState("");
+
+  const navigate = useNavigate();
 
   // update the form state when the user input changes
   // e is the event obj that is passed to the function whenever an event occurs
@@ -101,6 +103,8 @@ const SignInElements = () => {
         setLoginError(result.error); // set error msg
       } else {
         console.warn(result);
+        localStorage.setItem("user", JSON.stringify(result)); // stores the data in the local storage, with user as key
+        navigate("/home"); // navigate back to home on successfuly validation
         // handle successful login here.
       }
     } catch (error) {
@@ -109,6 +113,12 @@ const SignInElements = () => {
     }
   };
 
+  // useLocation() hook is used to get the location state passed from the privateComponent
+  const location = useLocation();
+
+  // this code retrieves the from pathname where the user was redirected from
+  const from = location.state?.from?.pathname || "/"; // optional chaining to safely access deeply nested properties
+  
   return (
     <>
       <Container>
@@ -121,6 +131,9 @@ const SignInElements = () => {
           <FormContent>
             <Form onSubmit={handleSubmit}>
               <FormH1>Sign in to your account</FormH1>
+              {from !== "/" && (
+                <p style={{ color: "red", marginBottom: "10px" }}>Please login to access {from.replace("/", "")}.</p>
+              )}
               <FormLabel htmlFor="for">Email</FormLabel>
               <FormInput
                 name="email"
