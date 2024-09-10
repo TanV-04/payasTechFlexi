@@ -20,6 +20,8 @@ import {
 import Sidebar from "../Sidebar";
 
 const Navbar = ({ toggle }) => {
+  const auth = localStorage.getItem("user"); // get auth status
+
   const [isNavOpen, setIsNavOpen] = useState(false);
 
   const [scrollNav, setScrollNav] = useState(false);
@@ -42,6 +44,11 @@ const Navbar = ({ toggle }) => {
 
   const toggleHome = () => {
     scroll.scrollToTop();
+  };
+
+  const handleSignOut = () => {
+    localStorage.removeItem("user");
+    window.location.reload();
   };
 
   return (
@@ -117,12 +124,22 @@ const Navbar = ({ toggle }) => {
 
           <ButtonGroup>
             <NavBtn>
-              <NavBtnLink to="/signin" activeClassName="active">
-                Sign In
-              </NavBtnLink>
-            </NavBtn>
-            <Separator />
-            <NavBtn>
+              {auth ? (
+                <>
+                  <NavBtnLink
+                    to="/"
+                    onClick={handleSignOut}
+                    activeClassName="active"
+                  >
+                    Log Out
+                  </NavBtnLink>
+                </>
+              ) : (
+                <NavBtnLink to="/signin" activeClassName="active">
+                  Sign In
+                </NavBtnLink>
+              )}
+              <Separator />
               <NavBtnLink to="/enquire" activeClassName="active">
                 Enquire
               </NavBtnLink>

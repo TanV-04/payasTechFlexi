@@ -50,6 +50,14 @@ const SignInElements = () => {
     return errors;
   };
 
+  // if the user is logged in, he cannot access the sign in button. if he isn't logged in, he can access the button.
+  useEffect(() => {
+    const auth = localStorage.getItem("user");
+    if (auth) {
+      navigate("/");
+    }
+  });
+
   // useEffect with an empty dependencies array ([]) will run only once when the component mounts
   // checks if there are no errors and if the form has been submitted.
   useEffect(() => {
@@ -118,7 +126,7 @@ const SignInElements = () => {
 
   // this code retrieves the from pathname where the user was redirected from
   const from = location.state?.from?.pathname || "/"; // optional chaining to safely access deeply nested properties
-  
+
   return (
     <>
       <Container>
@@ -132,7 +140,9 @@ const SignInElements = () => {
             <Form onSubmit={handleSubmit}>
               <FormH1>Sign in to your account</FormH1>
               {from !== "/" && (
-                <p style={{ color: "red", marginBottom: "10px" }}>Please login to access {from.replace("/", "")}.</p>
+                <p style={{ color: "red", marginBottom: "10px" }}>
+                  Please login to access {from.replace("/", "")}.
+                </p>
               )}
               <FormLabel htmlFor="for">Email</FormLabel>
               <FormInput
