@@ -44,3 +44,5 @@ npm installations:
 - install axios: npm install axios
 
 - install cors: npm install cors
+
+- install framer-motion: npm install framer-motion

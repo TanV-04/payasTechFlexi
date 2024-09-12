@@ -12,9 +12,15 @@ import {
   Button,
   ButtonGroup,
 } from "./SidebarElements";
-import "../../App.css"
+import "../../App.css";
 
 const Sidebar = ({ isOpen, toggle }) => {
+  const auth = localStorage.getItem("user");
+  const handleSignOut = () => {
+    localStorage.removeItem("user");
+    window.location.reload();
+  };
+
   return (
     <SidebarContainer isOpen={isOpen}>
       <Icon onClick={toggle}>
@@ -46,9 +52,25 @@ const Sidebar = ({ isOpen, toggle }) => {
           </SidebarLink>
         </SidebarMenu>
         <SideBtnWrap>
-          <SidebarRoute onClick={toggle} to="/signin">
-            Sign In
-          </SidebarRoute>
+          {auth ? (
+            <>
+              <SidebarRoute
+                onClick={handleSignOut}
+                to="/"
+                activeClassName="active"
+              >
+                Log Out
+              </SidebarRoute>
+            </>
+          ) : (
+            <SidebarRoute
+              onClick={toggle}
+              to="/signin"
+              activeClassName="active"
+            >
+              Sign In
+            </SidebarRoute>
+          )}
         </SideBtnWrap>
         <SideBtnWrap>
           <SidebarRoute onClick={toggle} to="/enquire">

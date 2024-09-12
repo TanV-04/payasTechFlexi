@@ -11,7 +11,6 @@ import {
   FormButton,
   Text,
 } from "./SignInElements";
-import logo from "../../images/logo.jpg";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const SignInElements = () => {
@@ -175,7 +174,9 @@ const SignInElements = () => {
                 Continue
               </FormButton>
               <Text className="cursor-pointer">Forgot Password?</Text>
-              <Text className="cursor-pointer">New User? Create Account!</Text>
+              <Link className="text-center mt-3" to="../CreateAccount">
+                <Text>New User? Create Account!</Text>
+              </Link>
             </Form>
           </FormContent>
         </FormWrap>

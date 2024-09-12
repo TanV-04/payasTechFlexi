@@ -16,6 +16,7 @@ import { createBrowserRouter, RouterProvider, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import PrivateComponent from "./components/PrivateComponent";
+import CreateAccount from "./components/CreateAccount";
 
 const router = createBrowserRouter([
   {
@@ -68,7 +69,12 @@ const router = createBrowserRouter([
     element: <Enquire />,
   },
 
-  // below are protected routes that are defined as children of the privateComponent route. if the user 
+  {
+    path: "/CreateAccount",
+    element: <CreateAccount />,
+  },
+
+  // below are protected routes that are defined as children of the privateComponent route. if the user
   // is not logged in, they will be redirected to the /signIn page
   {
     path: "/",
