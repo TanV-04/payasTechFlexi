@@ -1,4 +1,5 @@
 import { React, useState } from "react";
+import "../../App.css";
 import Navbar from "../Navbar";
 import Footer from "../Footer";
 import {
@@ -29,6 +30,7 @@ const CreateAccount = () => {
   const [success, setSuccess] = useState(null);
   const [formD, setFormD] = useState(initialValues);
   const [loginError, setLoginError] = useState(null);
+  const [messageVisible, setMessageVisible] = useState(false);
 
   const navigate = useNavigate();
 
@@ -72,18 +74,19 @@ const CreateAccount = () => {
     if (Object.keys(errors).length === 0) {
       collectData();
       setFormD(initialValues);
-      setSuccess("Account created successfully!");
+      // setSuccess("Account created successfully!");
+      // alert("Account created successfully!");
 
       // Redirect after one second.
-      setTimeout(() => {
-        navigate("/signIn");
-      }, 1000);
+      // setTimeout(() => {
+      //   navigate("/signIn");
+      // }, 2000);
     }
   };
 
   const collectData = async () => {
     try {
-      console.warn(formD.name, formD.email, formD.password);
+      // console.warn(formD.name, formD.email, formD.password); // --> for testing purposes
       let result = await fetch("http://localhost:5000/signUp", {
         method: "POST",
         body: JSON.stringify({
@@ -106,9 +109,15 @@ const CreateAccount = () => {
         setFormErrors({ ...formError, password: result.error });
         setLoginError(result.error);
       } else {
-        console.warn(result);
+        setSuccess("Account created successfully!");
+        setMessageVisible(true);
+        setTimeout(() => {
+          setMessageVisible(false);
+          navigate("/home");
+        }, 2000);
+        // console.warn(result);
         localStorage.setItem("user", JSON.stringify(result));
-        navigate("/home");
+        // navigate("/home");
       }
     } catch (error) {
       console.log("An error has occurred", error);
@@ -116,10 +125,10 @@ const CreateAccount = () => {
     }
   };
 
-  const messageVariants = {
-    hidden: { y: 30, opacity: 0 },
-    animate: { y: 0, opacity: 1, transition: { delay: 0.2, duration: 0.4 } },
-  };
+  // const messageVariants = {
+  //   hidden: { y: 30, opacity: 0 },
+  //   animate: { y: 0, opacity: 1, transition: { delay: 0.2, duration: 0.4 } },
+  // };
 
   const formData = [
     {
@@ -179,10 +188,28 @@ const CreateAccount = () => {
                 ))}
                 <FormButton type="submit">Sign Up</FormButton>
               </FormWrapper>
-              {success && (
+              {/* {success && (
                 <FormMessage animate="animate" variant={messageVariants}>
                   {success}
                 </FormMessage>
+              )} */}
+
+              {/* {Object.keys(formError).length === 0 && success && (
+                <div className="fixed top-0 left-0 right-0 bg-green-500 text-white text-center p-4 transition-transform transform translate-y-[-100%] animate-slide-down">
+                  Account Created Successfully
+                </div>
+              )} */}
+
+              {/* {loginError && (
+                <div className="fixed top-0 left-0 right-0 bg-green-500 text-white text-center p-4 transition-transform transform translate-y-[-100%] animate-slide-down">
+                  {loginError}
+                </div>
+              )} */}
+
+              {messageVisible && (
+                <div className="fixed top-0 left-0 right-0 bg-green-500 text-white text-center p-4 transition-transform transform translate-y-[-100%] animate-slide-down">
+                  {success}
+                </div>
               )}
             </FormColumn>
           </FormRow>

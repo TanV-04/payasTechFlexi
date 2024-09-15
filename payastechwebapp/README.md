@@ -46,3 +46,9 @@ npm installations:
 - install cors: npm install cors
 
 - install framer-motion: npm install framer-motion
+
+# for adding extra security to the website
+
+- to hash the passwords: npm install bcrypt (never store passwords in plain text. always hash them)
+
+- to prevent brute force attacks to login endpoints, i'm using rate limiting (which helps limit the number of requests to the website; this helps prevent DoS attacks[too many requests slowing down the website/server]). for that: npm install express-rate-limit
