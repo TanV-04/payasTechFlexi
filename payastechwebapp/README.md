@@ -47,6 +47,10 @@ npm installations:
 
 - install framer-motion: npm install framer-motion
 
+- install react gallery: npm install react-image-gallery
+
+- install framer motion: npm install framer-motion
+
 # for adding extra security to the website
 
 - to hash the passwords: npm install bcrypt (never store passwords in plain text. always hash them)

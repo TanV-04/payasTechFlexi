@@ -6,12 +6,11 @@ import ELearningSection from "../components/ELearningSection";
 
 export default function ELearning() {
   return (
-    <div>
+    <>
       <Navbar />
-      <h1>this is ELearning</h1>
       <ELearningSection />
-      <Footer />
       <BackToTopButton />
-    </div>
+      <Footer />
+    </>
   );
 }

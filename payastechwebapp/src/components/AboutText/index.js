@@ -1,9 +1,49 @@
-import React from "react";
+import { React, useRef } from "react";
+import { motion, useTransform, useScroll } from "framer-motion";
 import Video from "../../videos/videoBg1.mp4";
 import { Background, VideoBg, Separator } from "./AboutTextElements";
 import BackToTopButton from "../BackToTopButton";
 
 const AboutText = () => {
+  const targetref = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: targetref,
+  });
+
+  const x = useTransform(scrollYProgress, [0, 1], ["1%", "-95%"]);
+  const companies = [
+    {
+      id: 1,
+      comp: "Microsoft",
+    },
+    {
+      id: 2,
+      comp: "Google",
+    },
+    {
+      id: 3,
+      comp: "Oracle",
+    },
+    {
+      id: 4,
+      comp: "Accenture",
+    },
+    {
+      id: 5,
+      comp: "Capgemini",
+    },
+    {
+      id: 6,
+      comp: "Wipro",
+    },
+    {
+      id: 7,
+      comp: "Infosys",
+    },
+  ];
+
+  const fullCompaniesList = [...companies, ...companies, ...companies];
+
   return (
     <div className="mainContainer relative overflow-hidden">
       <Background>
@@ -161,10 +201,10 @@ const AboutText = () => {
           </li>
         </ul>
 
-        <h1 className="mt-7 dmSans text-xl text-white leading-relaxed mb-6">
-          MNC's Offering Placements:
+        <h1 className="mt-7 dmSans text-xl text-white leading-relaxed mb-6 text-center">
+          MNC's Offering Placements
         </h1>
-        <ul className="list-disc list-inside text-white space-y-3 pl-4">
+        {/* <ul className="list-disc list-inside text-white space-y-3 pl-4">
           <li className="text-lg font-semibold">
             <strong>Microsoft</strong>
           </li>
@@ -186,7 +226,54 @@ const AboutText = () => {
           <li className="text-lg font-semibold">
             <strong>Infosys and more...</strong>
           </li>
-        </ul>
+        </ul> */}
+
+        {/* <section ref={targetref} className="relative h-[300vh] bg-neutral-900">
+          <div className="sticky top-0 h-screen flex items-center overflow-hidden bg-purple-600">
+            <div className="flex gap-4">
+              <motion.div style={{x}} className="flex gap-4">
+                {companies.map((company) => (
+                  <div key={company.id} className="text-lg text-white">
+                    {company.comp}
+                  </div>
+                ))}
+              </motion.div>
+            </div>
+          </div>
+        </section> */}
+
+        <div className="relative overflow-hidden">
+          <motion.div
+            className="flex gap-8"
+            animate={{ x: ["0%", "-100%"] }}
+            transition={{
+              duration: 30,
+              ease: "linear",
+              repeat: Infinity,
+            }}
+            style={{ whiteSpace: "nowrap" }} // Ensures that items are treated as inline
+          >
+            {fullCompaniesList.map((company) => (
+              <div
+                key={company.id}
+                className="bg-green-500 text-white text-center font-bold p-4 rounded-lg shadow-lg w-64 inline-block"
+              >
+                {company.comp}
+              </div>
+            ))}
+          </motion.div>
+        </div>
+
+        {/* <div className="dmSans flex justify-center items-center flex-wrap gap-4 my-8">
+          {companies.map((company) => (
+            <div
+              key={company.id}
+              className="hover-property bg-green-500 text-white text-center p-6 rounded-lg shadow-lg w-64"
+            >
+              {company.comp}
+            </div>
+          ))}
+        </div> */}
       </div>
       <BackToTopButton />
     </div>

@@ -6,7 +6,7 @@ const cors = require("cors"); // import cors (cross origin resource sharing) pac
 const express = require("express"); // express.js library (helps you build web servers and APIs)
 const mongoose = require("mongoose"); // mongoose library for interacting with mongoDB from node.js
 require("./db/config"); // import and run the module that configures the connection to the mongoDB database
-const User = require("./db/User").default; // imports a mongoose model for users; typically used for defining a schema and interacting with user data in the database
+const User = require("./db/User"); // imports a mongoose model for users; typically used for defining a schema and interacting with user data in the database
 const rateLimit = require("express-rate-limit");
 
 const limiter = rateLimit({
@@ -20,14 +20,16 @@ app.use(cors()); // middleware for handling CORS error (feature in Express middl
 app.use(limiter);
 
 // connect to mongoDB
-mongoose
-  .connect("mongodb://localhost:27017/signIn", {
-    // establish connection to a mongoDB instance running on localhost at port 27017 using the database signIn
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
-  .then(() => console.log("Connected to MongoDB")) // log msg if connection is successful
-  .catch((err) => console.error("Could not connect to MongoDB...", err)); // log error if connection fails
+// mongoose
+//   .connect("mongodb://localhost:27017/signIn", {
+//     // establish connection to a mongoDB instance running on localhost at port 27017 using the database signIn
+//   })
+//   .then(() => console.log("Connected to MongoDB")) // log msg if connection is successful
+//   .catch((err) => console.error("Could not connect to MongoDB...", err)); // log error if connection fails
+
+  mongoose.connect("mongodb://localhost:27017/signIn")
+  .then(() => console.log("Connected to MongoDB"))
+  .catch((err) => console.error("Could not connect to MongoDB...", err));
 
 // below are routes/endpoints defined using methods provided by Express to handle different HTTP requests
 
@@ -88,6 +90,7 @@ app.post("/signUp", async (req, res) => {
 
 // Define a POST endpoint for sign-in (use POST for security reasons)
 app.post("/signIn", async (req, res) => {
+  console.log(req.body);
   const { email, password } = req.body; // Use req.body for POST request
 
   if (!email || !password) {

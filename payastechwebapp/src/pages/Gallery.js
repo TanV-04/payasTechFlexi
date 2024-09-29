@@ -1,11 +1,13 @@
-import React from 'react'
-import Navbar from '../components/Navbar'
+import React from "react";
+import Navbar from "../components/Navbar";
+import Gal from "../components/GallerySection";
 
-export default function Gallery () {
+export default function Gallery() {
   return (
     <div>
       <Navbar />
-      <h1>this is gallery</h1>
+
+      <Gal />
     </div>
-  )
+  );
 }

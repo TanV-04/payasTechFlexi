@@ -1,19 +1,20 @@
 import styled from "styled-components";
 
 export const ELearningContainer = styled.div`
-  height: 800px;
+  height: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   background: #010606;
+  padding: 20px;
 
   @media screen and (max-width: 768px) {
-    height: 1100px;
+    padding: 40px;
   }
 
   @media screen and (max-width: 480px) {
-    height: 1300px;
+    padding: 20px;
   }
 `;
 
@@ -21,7 +22,7 @@ export const ELearningWrapper = styled.div`
   max-width: 1000px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); //dynamic columns
   align-items: center;
   grid-gap: 16px;
   padding: 0 50px;
@@ -68,6 +69,7 @@ export const ELearningH1 = styled.h1`
   margin-bottom: 54px;
 
   @media screen and (max-width: 480px) {
+    margin-top: 5px;
     font-size: 2rem;
   }
 `;
@@ -75,6 +77,7 @@ export const ELearningH1 = styled.h1`
 export const ELearningH2 = styled.h2`
   font-size: 1rem;
   text-align: center;
+  font-weight: bold;
 `;
 
 export const ELearningP = styled.p`
@@ -86,5 +89,5 @@ export const ELearningVideo = styled.video`
   height: 160px;
   width: 160px;
   margin-bottom: 10px;
-  border-radius: 8px;
+  border-radius: 10px;
 `;

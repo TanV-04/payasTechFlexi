@@ -46,6 +46,10 @@ const SignInElements = () => {
     if (!regex.test(values.email)) {
       errors.email = "This is not a valid email";
     }
+
+    if (!values.password) {
+      errors.password = "Password is required";
+    }
     return errors;
   };
 
