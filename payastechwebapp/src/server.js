@@ -2,6 +2,7 @@
 // Express provides a more straightforward API for routing and handling HTTP requests
 
 // import modules
+require('dotenv').config();
 const cors = require("cors"); // import cors (cross origin resource sharing) package --> without it, any malicious website could make requests to another site on behalf of the user. cors allows servers to specify which domains are permitted to access their resources.
 const express = require("express"); // express.js library (helps you build web servers and APIs)
 const mongoose = require("mongoose"); // mongoose library for interacting with mongoDB from node.js
@@ -30,6 +31,11 @@ app.use(limiter);
   mongoose.connect("mongodb://localhost:27017/signIn")
   .then(() => console.log("Connected to MongoDB"))
   .catch((err) => console.error("Could not connect to MongoDB...", err));
+
+// access the mongoDB connection using process.env
+
+// const uri = process.env.MONGODB_URI;
+// mongoose.connect(uri, {useNewUrlParser: true, useUnifiedTopology: true}).then(()=>console.log("MongoDB connected")).catch(err => console.error("mongoDb connection error: ", err));
 
 // below are routes/endpoints defined using methods provided by Express to handle different HTTP requests
 

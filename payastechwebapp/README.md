@@ -53,6 +53,11 @@ npm installations:
 
 - install react map-gl:  npm i react-map-gl
 
+- install mongoDB: npm install mongodb
+
+- install dotenv package: npm install dotenv
+
+
 # for adding extra security to the website
 
 - to hash the passwords: npm install bcrypt (never store passwords in plain text. always hash them)
