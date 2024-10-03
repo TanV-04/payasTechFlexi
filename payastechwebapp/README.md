@@ -51,6 +51,8 @@ npm installations:
 
 - install framer motion: npm install framer-motion
 
+- install react map-gl:  npm i react-map-gl
+
 # for adding extra security to the website
 
 - to hash the passwords: npm install bcrypt (never store passwords in plain text. always hash them)
