@@ -1,4 +1,4 @@
-This is a re-creation of https://payastechnologies.com/ using React.
+This is a re-creation of https://payastechnologies.com/ using MERN stack.
 
 npm installations:
 
