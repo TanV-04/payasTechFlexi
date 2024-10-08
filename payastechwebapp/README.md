@@ -57,6 +57,29 @@ npm installations:
 
 - install dotenv package: npm install dotenv
 
+- install JWT npm package:npm install jwt-simple --save
+
+- install crypto-browerify: npm install crypto-browserify
+
+- install react-app rewired: npm install react-app-rewired
+
+- install stream-browerify: npm install stream-browserify
+
+- install vm-browserify: npm install vm-browserify
+
+- install process: npm install process
+
+-npm install customize-cra --save-dev
+
+- to update libraries, run: npm update
+
+below modules to handle HTTP communication
+- npm install express --save
+
+- npm install body-parser --save
+
+- to end emails from your server, install: npm install nodemailer
+
 
 # for adding extra security to the website
 

@@ -177,7 +177,9 @@ const SignInElements = () => {
               <FormButton className="mt-2" type="submit">
                 Continue
               </FormButton>
-              <Text className="cursor-pointer">Forgot Password?</Text>
+              <Text className="cursor-pointer">
+                <Link to = "/ForgotPassword">Forgot Password?</Link>
+              </Text>
               <Link className="text-center mt-3" to="../CreateAccount">
                 <Text>New User? Create Account!</Text>
               </Link>

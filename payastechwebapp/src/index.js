@@ -11,6 +11,8 @@ import Videos from "./pages/Videos";
 import ContactUs from "./pages/ContactUs";
 import { SignIn } from "./pages/SignIn";
 import Enquire from "./pages/Enquire";
+import ForgotPassword from "./pages/ForgotPassword";
+import ResetPassword from "./pages/ResetPassword"
 import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, RouterProvider, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
@@ -72,6 +74,15 @@ const router = createBrowserRouter([
   {
     path: "/CreateAccount",
     element: <CreateAccount />,
+  },
+
+  {
+    path: "/ForgotPassword",
+    element: <ForgotPassword />,
+  },
+  {
+    path: "/ResetPassword/:token",
+    element: <ResetPassword />,
   },
 
   // below are protected routes that are defined as children of the privateComponent route. if the user
